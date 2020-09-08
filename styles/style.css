@@ -510,3 +510,20 @@ img {
     justify-items: center;
   }
 }
+
+/* screens larger than 1024 */
+
+@media screen and (min-width: 1024px) {
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-image {
+    right: 10%;
+  }
+
+  .contact-form {
+    width: 600px;
+  }
+}
