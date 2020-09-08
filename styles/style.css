@@ -341,3 +341,48 @@ img {
 .skills-rails {
   width: 75%;
 }
+
+/* work/portfolio section */
+.work {
+  text-align: center;
+}
+
+.work-container {
+  row-gap: 2rem;
+}
+
+.work-img {
+  box-shadow: 0 4px 25px rgba( 14,36,49,.15);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.work-img img {
+  transition: 1s;
+  cursor: pointer;
+}
+
+.work-img img:hover {
+  transform: scale(1.1);
+}
+
+/* contact section */
+.contact-input {
+  width: 100%;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi);
+  padding: 1rem;
+  border-radius: .5rem;
+  border: 1.5px solid var(--second-color);
+  outline: none;
+  margin-bottom: var(--mb-4);
+}
+
+.contact-button {
+  display: block;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  margin-left: auto;
+}
