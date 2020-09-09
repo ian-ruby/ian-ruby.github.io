@@ -235,7 +235,7 @@ img {
   color: var(--first-color);
 }
 
-.home-image {
+.home-img {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -478,7 +478,7 @@ img {
     margin-right: var(--mb-4);
   }
 
-  .home-image {
+  .home-img {
     width: 357px;
     bottom: 15%;
   }
@@ -519,7 +519,7 @@ img {
     margin-right: auto;
   }
 
-  .home-image {
+  .home-img {
     right: 10%;
   }
 
