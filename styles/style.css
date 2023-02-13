@@ -215,6 +215,10 @@ img {
   margin-bottom: var(--mb-5);
 }
 
+.home-light-text {
+  font-weight: normal;
+}
+
 .home-title-color {
   color: var(--first-color);
 }
