@@ -28,6 +28,51 @@ function linkAction(){
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
+// contact form: send the message to my inbox without leaving the page
+const contactForm = document.getElementById('contact_form')
+
+if (contactForm) {
+  const statusEl = document.getElementById('contact_status')
+  const submitBtn = document.getElementById('contact_submit')
+  const ENDPOINT = 'https://formsubmit.co/ajax/githinji.mnene@gmail.com'
+
+  const showStatus = (type, html) => {
+    statusEl.className = 'contact-status ' + type
+    statusEl.innerHTML = html
+  }
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(contactForm))
+
+    // the hidden "_honey" field is only ever filled in by bots
+    if (data._honey) return
+
+    submitBtn.disabled = true
+    submitBtn.textContent = 'Sending...'
+    showStatus('', '')
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      const result = await res.json()
+      if (!res.ok || String(result.success) !== 'true') throw new Error(result.message || 'Send failed')
+
+      showStatus('success', 'Thanks, your message has been sent. I\'ll reply to the email address you gave.')
+      contactForm.reset()
+    } catch (err) {
+      showStatus('error', 'Your message could not be sent. Please try again, or email me directly at ' +
+        '<a href="mailto:githinji.mnene@gmail.com">githinji.mnene@gmail.com</a>.')
+    } finally {
+      submitBtn.disabled = false
+      submitBtn.textContent = 'Send'
+    }
+  })
+}
+
 // scroll reveal animation
 const sr = ScrollReveal({
   origin: 'top',
@@ -54,7 +99,7 @@ sr.reveal('.skills-data', {interval: 200})
 sr.reveal('.skills-img', {delay: 200})
 
 // scroll work
-sr.reveal('.work-img', {interval: 200})
+sr.reveal('.work-card', {interval: 200})
 
 // scroll contact
 sr.reveal('.contact-input', {interval: 200})
