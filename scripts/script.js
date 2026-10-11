@@ -61,10 +61,10 @@ if (contactForm) {
       const result = await res.json()
       if (!res.ok || String(result.success) !== 'true') throw new Error(result.message || 'Send failed')
 
-      showStatus('success', 'Thanks, your message has been sent. I\'ll reply to the email address you gave.')
+      showStatus('success', 'Thanks, for your email! I\'ll read and get back to you within 48hrs max.')
       contactForm.reset()
     } catch (err) {
-      showStatus('error', 'Your message could not be sent. Please try again, or email me directly at ' +
+      showStatus('Error', 'Your email could not be sent. Please try again, or email me directly at ' +
         '<a href="mailto:githinji.mnene@gmail.com">githinji.mnene@gmail.com</a>.')
     } finally {
       submitBtn.disabled = false
