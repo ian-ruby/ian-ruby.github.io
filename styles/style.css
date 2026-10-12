@@ -204,6 +204,7 @@ img {
 .home {
   height: calc(100vh - 3rem);
   row-gap: 1rem;
+  text-align: justify;
 }
 
 .home-data {
@@ -217,6 +218,7 @@ img {
 
 .home-light-text {
   font-weight: normal;
+  text-align: justify;
 }
 
 .home-title-color {
